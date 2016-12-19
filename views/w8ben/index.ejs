@@ -1,0 +1,220 @@
+<% include ../partials/header %>
+<div class='container'>
+    <div class='row'>
+        <div class='col-xs-12 panel panel-default'>
+            <div class='page-header'><h1>Tax Form Helper <small>W-8BEN Tax Form</small></h1></div>
+            <div class="progress">
+              <div class="multi-form-progress-bar progress-bar progress-bar-striped" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="width: 0%;">
+                <!--<span class="sr-only">0% Complete</span>-->
+              </div>
+            </div>
+            <div class='col-md-3'>
+                <div class='lead'>Helpful Info</div>
+                <h3>About this application</h3>
+                <div class='alert alert-success'>
+                    <p class='help-text'>
+                        Let us help you fill out your W8 form easier.  This application will walk you through
+                        filling out the <strong>Certificate of Foreign Status of Beneficial Owner for United 
+                        States Tax Withholding and Reporting (Individuals)</strong> form.  When complete, the 
+                        application will provide you with a completed <strong>form W-8BEN</strong> for the IRS.
+                    </p>
+                </div>
+                <div class='list-group'>
+                    <a class="list-group-item" href="https://www.irs.gov/pub/irs-pdf/iw8.pdf" target='_blank'>IRS Info</a>
+                    <a class="list-group-item" href="https://www.irs.gov/pub/irs-pdf/fw8ben.pdf" target='_blank'>Tax Form</a>
+                </div>
+            </div>
+            <div class='col-md-9'>
+                <form class='multi-form' action="/w8ben" method="POST">
+
+                    <div class='panel panel-default'>
+                        <div class='panel-body'>
+                            <!-- multi-form panels-->
+                            <div class='form-panel active' data-index='0'>
+                                <center><h2><small>Part 1 - </small>Identification of Beneficial Owner</h2></center>
+                                <div class='alert alert-info'>
+                                    <p>
+                                        Please be aware that all information on this form must be filled out with 100% accuracy
+                                        or you will be unable to be paid for your services.  <strong>For example, the name that
+                                        you enter here must match the name filled out on your <u>Statement of Location</u></strong>
+                                    </p>
+                                </div>
+                                <div class="error-message alert alert-danger">
+                                    <p>
+                                        Please make sure that all <strong>Required</strong> fields are completely filled out.
+                                    </p>
+                                </div>
+                                <div class='col-md-6'>
+                                    <div class='form-group'>
+                                        <label><span class="badge">1</span> Beneficial Owner's Name <a href="#"><i class="fa fa-info-circle" aria-hidden="true"></i></a></label>
+                                        <input class='form-control required' type='text' name='data[name]' placeholder='Required'>
+                                    </div>
+                                </div>
+                                <div class='col-md-6'>
+                                    <div class='form-group'>
+                                        <label><span class="badge">2</span> Country of Citizenship <a href="#"><i class="fa fa-info-circle" aria-hidden="true"></i></a></label>
+                                        <input class='form-control required' type='text' name='data[countryOfCitizenship]' placeholder='Required'>
+                                    </div>
+                                </div>
+                                <div class='col-md-12'>
+                                    <div class='form-group'>
+                                        <label><span class="badge">3</span> Address of Residence <a href="#"><i class="fa fa-info-circle" aria-hidden="true"></i></a></label>
+                                        <input class='form-control required' type='text' name='data[permResAddress]' placeholder='Required'>
+                                    </div>
+                                </div>
+                                <div class='col-md-6'>
+                                    <div class='form-group'>
+                                        <label><span class="badge">3</span> City of Residence <a href="#"><i class="fa fa-info-circle" aria-hidden="true"></i></a></label>
+                                        <input class='form-control required' type='text' name='data[permResCity]' placeholder='Required'>
+                                    </div>
+                                </div>
+                                <div class='col-md-6'>
+                                    <div class='form-group'>
+                                        <label><span class="badge">3</span> Country of Residence <a href="#"><i class="fa fa-info-circle" aria-hidden="true"></i></a></label>
+                                        <input class='form-control required' type='text' name='data[permResCountry]' placeholder='Required'>
+                                    </div>
+                                </div>
+                                <div class='col-md-12 well remove-hz-padding form-toggle'>
+                                    <div class='col-md-12'>
+                                        <div class='form-group'>
+                                            <label>Is Your Mailing Address different than your Place of Residence? <a href="#"><i class="fa fa-info-circle" aria-hidden="true"></i></a></label>
+                                            <select class='form-control form-toggle-control' name='differentMailing' id='differentMailing' data-target='#mailingToggle'>
+                                                <option value='0'>No</option>
+                                                <option value='1'>Yes</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class='form-toggle-panel' id='mailingToggle'>
+                                        <div class='col-md-12'>
+                                            <div class='form-group'>
+                                                <label><span class="badge">4</span> Mailing Address Street <a href="#"><i class="fa fa-info-circle" aria-hidden="true"></i></a></label>
+                                                <input class='form-control' type='text' name='data[mailingAddress]' placeholder='Optional'>
+                                            </div>
+                                        </div>
+                                        <div class='col-md-6'>
+                                            <div class='form-group'>
+                                                <label><span class="badge">4</span> Mailing Address City <a href="#"><i class="fa fa-info-circle" aria-hidden="true"></i></a></label>
+                                                <input class='form-control' type='text' name='data[mailingCity]' placeholder='Optional'>
+                                            </div>
+                                        </div>
+                                        <div class='col-md-12'>
+                                            <div class='form-group'>
+                                                <label><span class="badge">4</span> Mailing Address Country <a href="#"><i class="fa fa-info-circle" aria-hidden="true"></i></a></label>
+                                                <input class='form-control' type='text' name='data[mailingCountry]' placeholder='Optional'>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class='col-md-6'>
+                                    <div class='form-group'>
+                                        <label><span class="badge">5</span> U.S. Taxpayer ID (SSN or ITIN) <a href="#"><i class="fa fa-info-circle" aria-hidden="true"></i></a></label>
+                                        <input class='form-control' type='text' name='data[usTaxPayerId]' placeholder='Optional'>
+                                    </div>
+                                </div>
+                                <div class='col-md-6'>
+                                    <div class='form-group'>
+                                        <label><span class="badge">6</span> Foreign Tax ID Number <a href="#"><i class="fa fa-info-circle" aria-hidden="true"></i></a></label>
+                                        <input class='form-control' type='text' name='data[foreignTaxId]' placeholder='Optional'>
+                                    </div>
+                                </div>
+                                <div class='col-md-6'>
+                                    <div class='form-group'>
+                                        <label><span class="badge">7</span> Reference Number(s) <a href="#"><i class="fa fa-info-circle" aria-hidden="true"></i></a></label>
+                                        <input class='form-control' type='text' name='data[referenceNumbers]' placeholder='Optional'>
+                                    </div>
+                                </div>
+                                <div class='col-md-6'>
+                                    <div class='form-group'>
+                                        <label><span class="badge">8</span> Date of Birth <a href="#"><i class="fa fa-info-circle" aria-hidden="true"></i></a></label>
+                                        <input class='form-control' type='date' name='data[dateOfBirth]' placeholder='Optional'>
+                                    </div>
+                                </div>
+                        </div>
+                            <div class='form-panel' data-index='1'>
+                                <center><h2><small>Part 2 - </small>Claim of Tax Treaty Benefits</h2></center>
+                                <div class='alert alert-info'>
+                                    <p>
+                                        IAC Publishing does not require this portion of the W-8BEN to be completed.  Please
+                                        click <strong>Next</strong> to continue.
+                                    </p>
+                                </div>
+                            </div>
+                            <div class='form-panel' data-index='2'>
+                                <center><h2><small>Part 3 - </small>Certification</h2></center>
+                                <div class='alert alert-info'>
+                                    <p>
+                                        Carefully read through this section to ensure that you understand the certification
+                                        of this form.
+                                    </p>
+                                </div>
+                                <div class="error-message alert alert-danger">
+                                    <p>
+                                        Please make sure that all <strong>Required</strong> fields are completely filled out.
+                                    </p>
+                                </div>
+                                <div class="alert alert-warning" id='certification'>
+                                    <p>
+                                        Under penalties of perjury, I declare that I have examined the information on this form 
+                                        and to the best of my knowledge and belief it is true, correct, and complete. I further 
+                                        certify under penalties of perjury that:
+                                    </p>
+                                    <ul>
+                                        <li>
+                                            I am the individual that is the beneficial owner (or am authorized to sign for the 
+                                            individual that is the beneficial owner) of all the income to which this form relates 
+                                            or am using this form to document myself as an individual that is an owner or account 
+                                            holder of a foreign financial institution,
+                                        </li>
+                                        <li>
+                                            The person named on line 1 of this form is not a U.S. person
+                                        </li>
+                                        <li>
+                                            The income to which this form relates is:
+                                            <ul>
+                                                <li>not effectively connected with the conduct of a trade or business in the United States,</li>
+                                                <li>effectively connected but is not subject to tax under an applicable income tax treaty, or</li>
+                                                <li>the partner’s share of a partnership's effectively connected income,</li>
+                                            </ul>
+                                        </li>
+                                        <li>
+                                            The person named on line 1 of this form is a resident of the treaty country listed on line 9 of the form 
+                                            (if any) within the meaning of the income tax treaty between the United States and that country, and
+                                        </li>
+                                        <li>
+                                            For broker transactions or barter exchanges, the beneficial owner is an exempt foreign person as defined 
+                                            in the instructions.
+                                        </li>
+                                    </ul>
+                                    <p>
+                                        Furthermore, I authorize this form to be provided to any withholding agent that has control, receipt, or custody 
+                                        of the income of which I am the beneficial owner or any withholding agent that can disburse or make payments of 
+                                        the income of which I am the beneficial owner. <strong>I agree that I will submit a new form within 30 days if any 
+                                        certification made on this form becomes incorrect.</strong>
+                                    </p>
+                                </div>
+                                <div class='col-md-12'>
+                                    <div class='form-group'>
+                                        <label>Confirm Your Understanding By Typing Your Full Name</label>
+                                        <input type='text' name='data[printName]' class='form-control required' placeholder='Required'>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- multi-form panels-->
+                        </div>
+                    </div>
+                    
+                    
+                    <!-- multi-form controls-->
+                    <div class='multi-form-controls'>
+                        <button type='button' class='form-panel-button btn btn-primary btn-lg' data-toggle='back'>Previous</button>
+                        <button type='button' class='form-panel-button btn btn-primary btn-lg' data-toggle='next'>Next</button>
+                        <button type='submit' class='form-panel-button btn btn-primary btn-lg'>Submit</button>
+                    </div>
+                    <!-- multi-form controls -->
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<% include ../partials/footer %>

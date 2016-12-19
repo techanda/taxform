@@ -1,0 +1,73 @@
+<% include ../partials/header %>
+<div class='container'>
+    <div class='row'>
+        <div class='col-xs-12 panel panel-default'>
+            <div class='page-header'><h1>Tax Form Helper <small>W-8BEN Tax Form</small></h1></div>
+            <div class="progress">
+              <div class="multi-form-progress-bar progress-bar progress-bar-striped" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100" style="width: 100%;">
+                <span class="sr-only">100% Complete</span>
+              </div>
+            </div>
+            <div class='col-md-3'>
+                <div class='lead'>Helpful Info</div>
+                <h3>About this application</h3>
+                <div class='alert alert-success'>
+                    <p class='help-text'>
+                        Let us help you fill out your W8 form easier.  This application will walk you through
+                        filling out the <strong>Certificate of Foreign Status of Beneficial Owner for United 
+                        States Tax Withholding and Reporting (Individuals)</strong> form.  When complete, the 
+                        application will provide you with a completed <strong>form W-8BEN</strong> for the IRS.
+                    </p>
+                </div>
+                <div class='list-group'>
+                    <a class="list-group-item" href="https://www.irs.gov/pub/irs-pdf/iw8.pdf" target='_blank'>IRS Info</a>
+                    <a class="list-group-item" href="https://www.irs.gov/pub/irs-pdf/fw8ben.pdf" target='_blank'>Tax Form</a>
+                </div>
+            </div>
+            <div class='col-md-9'>
+                <div class='panel panel-default'>
+                    <div class='panel-body'>
+                        <center><h2><small>Part 4 - </small>Completion of Form</h2></center>
+                        <div class='alert alert-info'>
+                            <p>
+                                Please follow these instructions to make sure that the form is completely filled out
+                                correctly and transmitted to the correct team in the correct way.
+                            </p>
+                        </div>
+                        <div class="alert alert-danger">
+                            <p>
+                                <strong>
+                                    Make sure to download or print the completed form before leaving this page!  
+                                    <u>The completed file will be deleted upon leaving this page.</u>
+                                </strong>
+                            </p>
+                        </div>
+                        <div class='alert alert-warning' id='complete'>
+                            <ul>
+                                <li>Download or print the application</li>
+                                <li>Sign the application either by hand or electronically</li>
+                                <li>Send the signed digital copy to <em>person who handles document</em></li>
+                                <li>Save a copy for your records</li>
+                            </ul>
+                        </div>
+                        <center>
+                            <a class="btn btn-primary btn-lg" target="_blank" href='../../tmp/formOutput/<%= id %>/<%= form %>_Complete.pdf'>View</a>
+                            <a class="btn btn-primary btn-lg" href="../../tmp/formOutput/<%= id %>/<%= form %>_Complete.pdf" download='<%= form %>_Complete'>Download</a>
+                        </center>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+<script>
+    window.onbeforeunload = function () {
+        $.post("/<%= form %>/<%= id %>/delete");
+    };
+</script>
+
+<% include ../partials/footer %>
